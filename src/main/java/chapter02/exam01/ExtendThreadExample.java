@@ -18,6 +18,16 @@ public class ExtendThreadExample {
             }
         };
         anonymousThread.start();
+
+        // Anonymous Runnable Thread -> 로직의 재활용 X
+        Thread anonymousRunnableThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println(Thread.currentThread().getName() + " : 스레드 실행 중 ...");
+
+            }
+        });
+        anonymousRunnableThread.start();
     }
 }
 
