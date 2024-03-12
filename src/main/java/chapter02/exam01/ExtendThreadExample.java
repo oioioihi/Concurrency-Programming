@@ -28,6 +28,13 @@ public class ExtendThreadExample {
             }
         });
         anonymousRunnableThread.start();
+
+
+        // Lambda Thread
+        Thread lambdaThread = new Thread(() -> {
+            System.out.println(Thread.currentThread().getName() + " : 스레드 실행 중 ...");
+        });
+        lambdaThread.start();
     }
 }
 
