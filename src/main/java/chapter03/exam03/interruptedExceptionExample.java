@@ -4,7 +4,7 @@ public class interruptedExceptionExample {
     /**
      * [ InterruptedException ]
      * 대기나 차단 등 블록킹 상태에 있거나, 블록킹 상태를 만나는 시점에서 해당 스레드에게 interrupt가 발생했을 때 생기는 예외이다.
-     * InterruptedException이 발생하면 인터럽트 상태는 자동으로 초기화 된다. 즉 Thread.interrupted() 한 것과 같은 상태로 된다.
+     * InterruptedException이 발생하면 인터럽트 상태는 자동으로 초기화(false) 된다. 즉 Thread.interrupted() 한 것과 같은 상태로 된다.
      * 발생하는 케이스는 다음과 같다.
      * 1. Thread.sleep()
      * 2. Thread.join()
