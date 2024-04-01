@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ThreadLocalLogger {
 
-    private static final ThreadLocal<List<String>> THREAD_LOG = ThreadLocal.withInitial(ArrayList::new);
+    private static final ThreadLocal<List<String>> THREAD_LOG = ThreadLocal.withInitial(ArrayList::new); // 각 스레드마다 독립적으로 할당됨.
 
     public static void addLog(String log) {
         THREAD_LOG.get().add(log);
