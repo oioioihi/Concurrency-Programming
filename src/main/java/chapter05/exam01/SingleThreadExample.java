@@ -24,7 +24,7 @@ public class SingleThreadExample {
             }
         }
         System.out.println(" 합계 : " + sum);
-        System.out.println("싱글 스레드 처리ㅣ 시간 : " + (System.currentTimeMillis() - start) + "ms");
+        System.out.println("싱글 스레드 처리 시간 : " + (System.currentTimeMillis() - start) + "ms");
 
     }
 }
