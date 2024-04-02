@@ -8,8 +8,6 @@ public class ThreadPoolThreadLocalExample {
 
     /**
      * ThreadPool을 사용시, 로직 처리 후 threadLocal의 값을 지워주어야 한다.
-     *
-     * @param args
      */
     public static void main(String[] args) {
 
