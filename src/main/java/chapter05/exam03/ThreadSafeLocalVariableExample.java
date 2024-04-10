@@ -1,7 +1,7 @@
 package chapter05.exam03;
 
 public class ThreadSafeLocalVariableExample {
-
+    // 기본형 지역 변수는 스레드마다 독립적으로 가지고 있는 stack 영역에 저장되기 때문에, 스레드간에 공유될 수 없으므로 스레드에 안전하다.
     public static void main(String[] args) {
         ThreadSafeLocalVariableExample example = new ThreadSafeLocalVariableExample();
 
