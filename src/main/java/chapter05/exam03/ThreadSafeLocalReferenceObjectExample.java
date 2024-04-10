@@ -1,6 +1,11 @@
 package chapter05.exam03;
 
 public class ThreadSafeLocalReferenceObjectExample {
+    /**
+     * 지역 객체 참조
+     * 지역 변수라 할지라도 객체 참조 변수는 기본형과 다르게 stack영역에 저장되지 않고 메모리의 Heap 영역에 저장된다.
+     * 지역적으로 생성된 객체 (ex. 메서드 안에서 객체 생성)가 해당 메서드를 벗어나지 않고 사용 된다면, 스레드는 자신만의 객체를 참조할 수 있게 되어 스레드에 안전하다.
+     */
 
     public static void main(String[] args) {
         ThreadSafeLocalReferenceObjectExample example = new ThreadSafeLocalReferenceObjectExample();
