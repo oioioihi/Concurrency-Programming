@@ -10,7 +10,6 @@ public class InstanceBlockSynchronizedExampl2 {
 
         Thread thread1 = new Thread(() -> {
             for (int i = 0; i < 1000; i++) {
-
                 example1.incrementBlockThis();
             }
         }, "스레드 1");
@@ -53,14 +52,14 @@ public class InstanceBlockSynchronizedExampl2 {
 
     public void incrementBlockThis() {
         synchronized (this) { // this객체가 모니터 대상이다.
-            count++;
+            count++; // 모니터 객체가 달라도 count 라는 변수에 동시접근이 가능해서 문제가 발생할수 있다.
             System.out.println(Thread.currentThread().getName() + "가 This에 의해 블록 동기화 함 :" + count);
         }
     }
 
     public void incrementBlockLockObject() {
         synchronized (lockObject) {// lockObject 객체가 모니터 대상이다.
-            count++;
+            count++; // 모니터 객체가 달라도 count 라는 변수에 동시접근이 가능해서 문제가 발생할수 있다.
             System.out.println(Thread.currentThread().getName() + "가 lockObject에 의해 블록 동기화 함 :" + count);
         }
     }
