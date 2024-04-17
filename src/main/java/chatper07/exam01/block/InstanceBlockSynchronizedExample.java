@@ -50,14 +50,14 @@ public class InstanceBlockSynchronizedExample {
     }
 
     public void incrementBlockThis() {
-        synchronized (this) {
+        synchronized (this) { // this객체가 모니터 대상이다.
             count++;
             System.out.println(Thread.currentThread().getName() + "가 This에 의해 블록 동기화 함 :" + count);
         }
     }
 
     public void incrementBlockLockObject() {
-        synchronized (lockObject) {
+        synchronized (lockObject) {// lockObject 객체가 모니터 대상이다.
             count++;
             System.out.println(Thread.currentThread().getName() + "가 lockObject에 의해 블록 동기화 함 :" + count);
         }
