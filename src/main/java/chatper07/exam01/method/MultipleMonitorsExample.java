@@ -25,6 +25,10 @@ class BankAccount {
         }
     }
 
+    /**
+     * 보내는 계좌와 받는 계좌를 동시에 lock을 걸고 로직이 수행되어야한다.
+     * synchronized의 단점은 여러개의 monitor을 컨트롤 하면서 사용해야하는 경우,lock객체를 파익하기 어렵다.(가독성)
+     */
     public boolean transfer(BankAccount to, double amount) {
         synchronized (this.lock) { // 보내는 계좌를 lock을 건다.
             if (this.withdraw(amount)) { // 보내는 계좌에서 출금이 성공적으로 끝나면
