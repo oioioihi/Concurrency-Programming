@@ -26,10 +26,10 @@ class BankAccount {
     }
 
     public boolean transfer(BankAccount to, double amount) {
-        synchronized (this.lock) {
-            if (this.withdraw(amount)) {
-                synchronized (to.lock) {
-                    to.deposit(amount);
+        synchronized (this.lock) { // 보내는 계좌를 lock을 건다.
+            if (this.withdraw(amount)) { // 보내는 계좌에서 출금이 성공적으로 끝나면
+                synchronized (to.lock) { // 받는 계좌도 lock을 건다. (받는 계좌 잔고 = 임계영역)
+                    to.deposit(amount); // 송금한다.
                     return true;
                 }
             }
