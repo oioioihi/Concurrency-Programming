@@ -1,5 +1,10 @@
 package chatper07.exam01;
 
+/**
+ * 모니터 내에서 이미 synchronized 영역에 들어간 스레드가 다시 모니터 영역으로 들어갈 수 있는데, 이를 모니터 재진입이라고 한다.
+ * 재진입 가능하다는 것은 락의 획득이 메서드 호출 단위가 아닌, 스레드 단위로 일어난다는 것을 의미하며 이미 락을 획득한 스레든은 같은 락을 얻기 위해,
+ * 대기할 필요 없이 synchronized 블록을 만났을때 같은 락을 확보하고 진입 가능하다.
+ */
 public class SynchronizedExamples {
     private static int staticCount = 0;
     private int instanceCount = 0;
