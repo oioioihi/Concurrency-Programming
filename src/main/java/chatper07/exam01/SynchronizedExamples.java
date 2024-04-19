@@ -13,7 +13,6 @@ public class SynchronizedExamples {
         synchronized (SynchronizedExamples.class) { // 클래스 메서드의 동기화는 해당 클래스 타입으로 한다.
             staticCount++;
             System.out.println("staticCount : " + staticCount);
-
         }
     }
 
