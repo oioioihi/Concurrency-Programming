@@ -34,6 +34,8 @@ public class SimpleThreadPool {
         }
     }
 
+
+    // ThreadPool 종료
     public void shutdown() {
         isShutdown = true;
         synchronized (taskQueue) {
