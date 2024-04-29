@@ -1,4 +1,4 @@
-package chatper07.exam01.block;
+package chapter07.exam01.block;
 
 public class InstanceBlockSynchronizedExampl2 {
     private final Object lockObject = new Object();

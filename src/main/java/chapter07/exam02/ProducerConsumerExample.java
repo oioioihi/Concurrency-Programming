@@ -1,4 +1,4 @@
-package chatper07.exam02;
+package chapter07.exam02;
 
 
 import java.util.LinkedList;

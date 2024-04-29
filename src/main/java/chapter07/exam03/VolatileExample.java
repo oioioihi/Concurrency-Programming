@@ -1,4 +1,4 @@
-package chatper07.exam03;
+package chapter07.exam03;
 
 public class VolatileExample {
 

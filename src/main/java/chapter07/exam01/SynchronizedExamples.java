@@ -1,4 +1,4 @@
-package chatper07.exam01;
+package chapter07.exam01;
 
 /**
  * [ Synchronized ]

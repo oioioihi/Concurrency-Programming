@@ -1,4 +1,4 @@
-package chatper07.exam01.method;
+package chapter07.exam01.method;
 
 class BankAccount {
     private final Object lock = new Object();
