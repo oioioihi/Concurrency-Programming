@@ -16,9 +16,11 @@ public class FutureExample {
             }
             return 2024;
         });
+        System.out.println("비동기 작업 시작");
 
         try {
-            future.get(); //Blocking
+            Integer result = future.get();//Blocking
+            System.out.println("비동기 작업 결과 : " + result);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         } catch (ExecutionException e) {
