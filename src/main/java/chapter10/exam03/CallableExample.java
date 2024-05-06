@@ -29,5 +29,6 @@ public class CallableExample {
         }
 
         System.out.println("Callable 작업 결과 : " + result);
+        executorService.shutdown();
     }
 }
