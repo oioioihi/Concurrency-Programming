@@ -15,7 +15,7 @@ public class FutureGetExample {
         };
         Future<Integer> future = executorService.submit(callableTask);
         try {
-            Integer result = future.get(); //main 스레드가 result를 얻을 때 까지 blocking 됨
+            Integer result = future.get(); //main 스레드가 result를 얻을 때 까지 blocking 됨. (2초)
             System.out.println("결과 : " + result);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
