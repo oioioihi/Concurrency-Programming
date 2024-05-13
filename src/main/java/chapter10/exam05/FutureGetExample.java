@@ -14,6 +14,12 @@ public class FutureGetExample {
             return 2024;
         };
         Future<Integer> future = executorService.submit(callableTask);
+
+//        while (!future.isDone()) {
+//            System.out.println("아직 작업을 기다리는 중 ..");
+//            Thread.sleep(500);
+//        }
+//
         try {
             Integer result = future.get(); //main 스레드가 result를 얻을 때 까지 blocking 됨. (2초)
             System.out.println("결과 : " + result);
