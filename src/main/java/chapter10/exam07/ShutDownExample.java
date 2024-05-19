@@ -54,11 +54,11 @@ public class ShutDownExample {
             throw new RuntimeException(e);
         }
 
-        if (executorService.isShutdown()) {
+        if (executorService.isShutdown()) { // ExecutorService의 shutdown() 또는 shutdownNow() 메서드가 호출 후 종료절차가 시작되었는지 여부를 반환한다.
             System.out.println("스레드 풀 종료 여부 : " + executorService.isShutdown());
         }
 
-        if (executorService.isTerminated()) {
+        if (executorService.isTerminated()) { // ExecutorService가 완전히 종료되어 더 이상 어떠한 작업도 수행하지 않는 상태인지를 나타내며, 모든 작업과 스레드가 완전히 종료된 후에 true를 반환한다.
             System.out.println("스레드 풀 종료 중...");
         }
 
