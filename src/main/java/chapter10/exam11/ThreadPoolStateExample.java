@@ -4,12 +4,6 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-/**
- * ThreadPoolExecutor Hook Method
- * <p>
- * ThreadPoolExecutor 클래스는 스레드 풀을 관리하고, 작업 실행 시점에 특정 이벤트를 처리하기 위한 Hook 메서드를 제공한다.
- * ThreadPoolExecutor 클래스를 상속하고, Hookk 메서드를 커스텀 할 수 있다.
- */
 public class ThreadPoolStateExample {
     public static void main(String[] args) throws InterruptedException {
 
