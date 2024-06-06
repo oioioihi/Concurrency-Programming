@@ -4,6 +4,9 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * ThreadPoolExecutor는 다양한 생명주기와 상태를 가지며 이러한 상태에 따라 작업 스레드 풀의 동작이 결정된다.
+ */
 public class ThreadPoolStateExample {
     public static void main(String[] args) throws InterruptedException {
 
@@ -61,10 +64,12 @@ public class ThreadPoolStateExample {
 
     private static void printThreadPoolState(ThreadPoolExecutor executor) {
         if (executor.getActiveCount() > 0) { // 현재 작업을 실행 중인 스레드가 존재하는 상태
-            System.out.println("ThreadPoolExecutor is RUNNING");
+            System.out.println("ThreadPoolExecutor is RUNNING"); // 새작업을 수용하고 대기 중인 작업을 처리한다. 스레드 풀이 생성된 직후에 이 상태가 된다.
         }
         if (executor.isShutdown()) {
-            System.out.println("ThreadPoolExecutor is SHUTDOWN or STOP");
+            System.out.println("ThreadPoolExecutor is SHUTDOWN or STOP"); //
+            // SHUTDOWN : 스레드 풀을 종료하는 상태로서 새 작업을 수용하지 않지만, 대기 중인 작업은 처리한다.
+            // STOP : 스레드 풀을 종료하는 상태로서 새 작업을 수용하지 않고 대기 중인 작업도 처리하지 않으며 현재 진행 중인 작업을 중단한다.
         }
         if (executor.isTerminating()) {
             System.out.println("ThreadPoolExecutor is TIDYING"); // 모든 작업이 종료되었으며, workerCount가 0인 상태에서 terminated() 훅 메서드를 실행한다.
