@@ -23,6 +23,7 @@ public class SupplyAsyncExample {
         });
         List<Integer> result = cf.join();
         result.stream().forEach(r -> System.out.println("result : " + r));
+        System.out.println("Main Thread End..");
 
     }
 }
