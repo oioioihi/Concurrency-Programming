@@ -19,12 +19,12 @@ public class ThreadPoolExecutorExample {
 
     public static void main(String[] args) {
 
-        int corePoolSize = 2;
-        int maxPoolSize = 4;
+        int corePoolSize = 100;
+        int maxPoolSize = 100;
         long keepAliveTime = 0L; // idle상태인 스레드를 제거하는 기준. corePoolSize만큼만 남기고 노는 스레드 정리.
         //BlockingQueue<Runnable> workQueue = new LinkedBlockingQueue<>(); //task를 제출한 만큼 다 Queue에 저장함.
-        BlockingQueue<Runnable> workQueue = new ArrayBlockingQueue<>(4); // capacity만큼의 task만 Queue에 저장함.
-        int taskNum = 8;
+        BlockingQueue<Runnable> workQueue = new LinkedBlockingQueue<>(); // capacity만큼의 task만 Queue에 저장함.
+        int taskNum = 200;
 
         ExecutorService executor =
                 new ThreadPoolExecutor(corePoolSize, maxPoolSize, keepAliveTime, TimeUnit.SECONDS, workQueue);
@@ -33,8 +33,9 @@ public class ThreadPoolExecutorExample {
             final int taskId = i;
             executor.execute(() -> {
                 try {
-                    Thread.sleep(500);
+                    Thread.sleep(100);
                 } catch (InterruptedException e) {
+                    System.out.println("인터럽트 된 Thread : " + Thread.currentThread().getName() + " ==== 태스크 : " + taskId);
                     throw new RuntimeException(e);
                 }
                 System.out.println(Thread.currentThread().getName() + "가 태스크" + taskId + "를 실행하고 있습니다.");
