@@ -16,11 +16,11 @@ public class ThenApplyExample {
                 throw new RuntimeException(e);
             }
             return 40;
-        }).thenApply(r -> {
+        }).thenApply(r -> { // thenApply()는 이전 작업 결과가 완료 되었다면 메인 스레드에서 동기 처리되고 그렇지 않으면 이전과 동일한 스레드에서 비동기 처리된다.
             System.out.println("Thread 2 : " + Thread.currentThread().getName());
             int result = myService.getData1();
             return r + result;
-        }).thenApplyAsync(r -> {
+        }).thenApplyAsync(r -> { // thenApplyAsync()는 이전 작업 결과와 상관없이 무조건 풀 스레드에서 비동기 처리된다. 풀 스레드는 이전과 동일한 스레드 혹은 새롭게 생성된 스레드가 될수 있다.
             System.out.println("Thread 2 : " + Thread.currentThread().getName());
             int result = myService.getData2();
             return r + result;
