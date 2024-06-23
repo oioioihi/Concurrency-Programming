@@ -4,7 +4,7 @@ import java.util.concurrent.CompletableFuture;
 
 /**
  * [ anyOf ]
- * 여러개의 CompletableFuture를 동시에 실행하고 모든 CompletableFuture가 완료될 때까지 대기하는데 사용된다.
+ * 여러개의 CompletableFuture를 동시에 실행하고, 가장 먼저 완료되는 하나의 CompletableFuture를 반환하는 메서드이다
  * ExecutorService의 invokeAny()과 유사한 개념이다.
  */
 public class AnyOfExample {
