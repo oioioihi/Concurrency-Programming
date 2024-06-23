@@ -1,4 +1,4 @@
-package chapter11.exam07;
+package chapter11.exam06;
 
 import java.util.concurrent.CompletableFuture;
 
