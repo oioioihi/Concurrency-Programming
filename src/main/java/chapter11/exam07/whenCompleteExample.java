@@ -1,0 +1,35 @@
+package chapter11.exam07;
+
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionException;
+
+public class whenCompleteExample {
+
+    public static void main(String[] args) {
+        CompletableFuture<Integer> cf = CompletableFuture.supplyAsync(() -> {
+                    try {
+                        Thread.sleep(500);
+                        throw new IllegalStateException("error");
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                    }
+                    return 10;
+                }).thenApply(result -> {
+                    return result + 10; // 이 작업은 실행되지 않는다. -> 넘어온 결과가 예외이면 주어진 함수를 실행하지 않고, 받은 예외를 그대로 저장한다.
+                })
+                .whenComplete((result, error) -> { // 정상적인 결과와 예외처리를 모두 다룰 수 있는 메서드이다. result 또는 e가 넘어온다.
+                    if (error != null) {
+                        System.out.println(error.getMessage());
+                    }
+                });
+
+        // 따로 예외 처리를 해주어야 함.
+        try {
+            cf.join();
+        } catch (CompletionException e) {
+            System.out.println("예외처리를 합니다.");
+        }
+        System.out.println("result : " + cf.join()); // cf는 정상적인 값이 아닌, 예외를 그대로 가지고 있다.
+
+    }
+}
