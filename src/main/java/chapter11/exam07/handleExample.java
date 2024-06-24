@@ -24,6 +24,6 @@ public class handleExample {
                     return result;
                 });
 
-        System.out.println("result : " + cf.join());
+        System.out.println("result : " + cf.join());  // cf는 정상적인 값을 가지고 있다.
     }
 }
