@@ -21,7 +21,14 @@ public class CompleteExample {
             CompletableFuture<Integer> cf = new CompletableFuture<>();
             ExecutorService executorService = Executors.newSingleThreadExecutor();
             executorService.submit(() -> {
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
 
+                cf.complete(2024);
+                cf.complete(2025);  // 반영 안됨 -> 내부적으로 compareAndSet 연산을 통해 원자성이 보장됨.
             });
 
 
