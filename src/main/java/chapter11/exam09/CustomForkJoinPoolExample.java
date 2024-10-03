@@ -11,6 +11,12 @@ import java.util.concurrent.ForkJoinPool;
  * -> 별도의 스레드 풀을 생성하여 I/O작업과 CPU작업을 분리하고 I/O작업을 별도의 스레드에서 처리하는 것을 고려해야한다.
  * 2. Starvation(기아상태) : I/O 작업이 지속적으로 블록되면 CPU 작업이 실행 기회를 얻지 못하고, 기아상태에 빠질 수 있다.
  * -> 스레드 풀을 분리하여 CPU작업이 충분한 실행 기회를 얻도록 관리해야하고 대신 스레드가 필요 이상으로 생성되어 리소스 비요잉 커지지 않도록 해야 한다.
+ * <p>
+ * <p>
+ * [ForkJoinPool & ThreadPoolExecutor 스레드 풀 설정]
+ * ForkJoinPool : 내부적으로 병렬처리를 위한 특화된 기능이므로 CPU Bound작업에 특화되어 있다.
+ * ThreadPoolExecutor : 동시성에 좀 더 특화되었으므로, I/O Bound 작업에 더 적합하다.
+ * 두개를 CompletableFuture의 API마다 혼합해서 사용 가능하다.
  */
 public class CustomForkJoinPoolExample {
     public static void main(String[] args) {
@@ -20,10 +26,12 @@ public class CustomForkJoinPoolExample {
             array[i] = i;
         }
 
-        ForkJoinPool pool = new ForkJoinPool(Runtime.getRuntime().availableProcessors());
-        CustomRecursiveTask task = new CustomRecursiveTask();
+        ForkJoinPool pool = new ForkJoinPool(Runtime.getRuntime().availableProcessors()); // CPU 코어 갯수만큼
+        CustomRecursiveTask task = new CustomRecursiveTask(array, 0, array.length);
         Integer result = pool.invoke(task);
 
         System.out.println("result = " + result);
     }
 }
+
+
