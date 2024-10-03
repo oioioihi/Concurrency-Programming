@@ -28,9 +28,9 @@ public class CustomRecursiveTask extends RecursiveTask<Integer> {
             CustomRecursiveTask left = new CustomRecursiveTask(array, start, mid);
             CustomRecursiveTask right = new CustomRecursiveTask(array, mid, end);
 
-            left.fork();
+            left.fork(); // 다른 스레드에서 작업을 실행
             Integer rightResult = right.compute();
-            Integer leftResult = left.join();
+            Integer leftResult = left.join(); // 작업이 완료 될때까지 대기
             return leftResult + rightResult;
         }
 
